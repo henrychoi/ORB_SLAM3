@@ -28,7 +28,7 @@
 #include <boost/serialization/vector.hpp>
 #include <boost/serialization/assume_abstract.hpp>
 
-#include "GeometricCamera.h"
+#include "CameraModels/GeometricCamera.h"
 
 #include "TwoViewReconstruction.h"
 

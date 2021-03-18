@@ -6,27 +6,27 @@
 Camera.type: "PinHole"
 
 # Camera calibration and distortion parameters (OpenCV) 
-Camera.fx: 535.4
-Camera.fy: 539.2
-Camera.cx: 320.1
-Camera.cy: 247.6
+Camera.fx: 640.0
+Camera.fy: 360.0
+Camera.cx: 640.0
+Camera.cy: 360.0
 
 Camera.k1: 0.0
 Camera.k2: 0.0
 Camera.p1: 0.0
 Camera.p2: 0.0
 
-Camera.width: 640
-Camera.height: 480
+Camera.width: 1280
+Camera.height: 720
 
 # Camera frames per second 
-Camera.fps: 30.0
+Camera.fps: 6.0
 
 # IR projector baseline times fx (aprox.)
 Camera.bf: 40.0
 
 # Color order of the images (0: BGR, 1: RGB. It is ignored if images are grayscale)
-Camera.RGB: 1
+Camera.RGB: 0
 
 # Close/Far threshold. Baseline times.
 ThDepth: 40.0
@@ -67,4 +67,46 @@ Viewer.ViewpointX: 0
 Viewer.ViewpointY: -0.7
 Viewer.ViewpointZ: -1.8
 Viewer.ViewpointF: 500
+
+
+#--------------------------------------------------------------------------------------------
+# Transformation matrix from right camera to left camera
+#--------------------------------------------------------------------------------------------
+#Tlr: !!opencv-matrix
+#  rows: 3
+#  cols: 4
+#  dt: f
+#  data: [1.0, 0.0, 0.0, -0.5,
+#         0.0, 1.0, 0.0, 0.0,
+#         0.0, 0.0, 1.0, 0.0]
+
+#--------------------------------------------------------------------------------------------
+#Transformation from camera to body-frame(IMU)
+#--------------------------------------------------------------------------------------------
+Tbc: !!opencv-matrix
+   rows: 4
+   cols: 4
+   dt: f
+   data: [0.0, 0.0, -1.0, 0.0,
+          1.0, 0.0, 0.0, 0.0,
+          0.0, -1.0, 0.0, 0.0,
+          0.0, 0.0, 0.0, 1.0]         
+#   data: [0.0, 0.0, 1.0, 0.025,
+#          -1.0, 0.0, 0.0, -1.7,
+#          0.0, -1.0, 0.0, 0.2,
+#          0.0, 0.0, 0.0, 1.0]         
+          
+#--------------------------------------------------------------------------------------------
+#IMU
+#--------------------------------------------------------------------------------------------
+# IMU noise
+IMU.NoiseGyro: 0.01 #1.7e-04 # 1.6968e-04 
+IMU.NoiseAcc: 0.01 #2.0e-03 # 2.0000e-3
+IMU.GyroWalk: 0.01 #1.9393e-05 
+IMU.AccWalk: 0.01 #3.e-03 # 3.0000e-3
+IMU.Frequency: 100
+
+
+
+
 

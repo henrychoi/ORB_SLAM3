@@ -75,7 +75,13 @@ Required to calculate the alignment of the trajectory with the ground truth. **R
 ## ROS (optional)
 
 We provide some examples to process input of a monocular, monocular-inertial, stereo, stereo-inertial or RGB-D camera using ROS. Building these examples is optional. These have been tested with ROS Melodic under Ubuntu 18.04.
-
+```bash
+cd Examples/ROS/ORB_SLAM3
+colcon build --cmake-args '-DCMAKE_BUILD_TYPE=Release'
+source ../../../build/install/setup.bash
+source install/setup.bash
+LD_LIBRARY_PATH=~/ORB_SLAM3/lib:$LD_LIBRARY_PATH ros2 run orb_slam3_ros2 Imu_stereo ORBvoc.txt Asus.yaml false
+```
 # 3. Building ORB-SLAM3 library and examples
 
 Clone the repository:

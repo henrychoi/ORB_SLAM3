@@ -38,7 +38,7 @@
 #include "System.h"
 #include "ImuTypes.h"
 
-#include "GeometricCamera.h"
+#include "CameraModels/GeometricCamera.h"
 
 #include <mutex>
 #include <unordered_set>
