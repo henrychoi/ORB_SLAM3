@@ -38,6 +38,7 @@
 #include"include/ImuTypes.h"
 #include <opencv2/imgcodecs.hpp>
 #include <opencv2/imgproc.hpp>
+#include <boost/format.hpp>
 
 using namespace std;
 
@@ -77,6 +78,10 @@ public:
 
 void IMU_Grabber::GrabImu(const sensor_msgs::msg::Imu::SharedPtr imu_msg)
 {
+    RCLCPP_INFO(get_logger(), boost::str(boost::format("IMU (%f %.1f; %f)")
+        % imu_msg->linear_acceleration.x % imu_msg->linear_acceleration.z
+        % imu_msg->angular_velocity.z
+    ));
     m_data->mBufMutex.lock();
     m_data->imuBuf.push(imu_msg);
     m_data->mBufMutex.unlock();
